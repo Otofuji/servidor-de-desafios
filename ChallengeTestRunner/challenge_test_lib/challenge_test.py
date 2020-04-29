@@ -390,9 +390,10 @@ class TestCaseWrapper(unittest.TestCase):
 	    return 1 + min(l1, l2, l3)
  
 
-    def assert_similar(self, string1, string2, distMax=1):
-        if not string1: return len(t)
-	    if not string2: return len(s)
+    def assert_similar(self, string1, string2, distMax=1, caseSensitive=False):
+        if not string1: return len(string1)
+	    if not string2: return len(string2)
+        if caseSensitive == True: string1.lower(); string2.lower()
 	    if string1[0] == string2[0]: return ld(string1[1:], string2[1:])
 	    l1 = ld(string1, string2[1:])
 	    l2 = ld(string2[1:], string2)
