@@ -520,7 +520,7 @@ class TestCaseWrapperTest(unittest.TestCase):
         self.test_case_wrapper = challenge_test.TestCaseWrapper()
         self.test_case_wrapper.setUp()
 
-    def test_assert_printed_string(self):
+    def test_assert_printed_string(self):   
         expected_print = 'Who watches Bleach in 2019?'
         print(expected_print)
         self.test_case_wrapper.assert_printed(expected_print)
@@ -590,6 +590,11 @@ class TestCaseWrapperTest(unittest.TestCase):
 
         with self.assertRaises(AssertionError):
             self.test_case_wrapper.assert_printed('Ora', 1)
+
+    def test_assert_similar(self):
+        print('')
+        with self.assertRaises(AssertionError):
+            self.test_case_wrapper.assert_similar('Yare yare daze', 'yare yari daze', 2, True)
 
 
 if __name__ == '__main__':
