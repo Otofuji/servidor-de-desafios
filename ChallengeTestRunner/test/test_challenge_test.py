@@ -591,6 +591,11 @@ class TestCaseWrapperTest(unittest.TestCase):
         with self.assertRaises(AssertionError):
             self.test_case_wrapper.assert_printed('Ora', 1)
 
+    def test_assert_similar(self):
+        print('')
+        with self.assertRaises(AssertionError):
+            self.test_case_wrapper.assert_similar('Yare yare daze', 'yare yari daze', 2, True)
+
 
 if __name__ == '__main__':
     unittest.main()
