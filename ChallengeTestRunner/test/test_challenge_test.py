@@ -520,7 +520,7 @@ class TestCaseWrapperTest(unittest.TestCase):
         self.test_case_wrapper = challenge_test.TestCaseWrapper()
         self.test_case_wrapper.setUp()
 
-    def test_assert_printed_string(self):
+    def test_assert_printed_string(self):   
         expected_print = 'Who watches Bleach in 2019?'
         print(expected_print)
         self.test_case_wrapper.assert_printed(expected_print)
