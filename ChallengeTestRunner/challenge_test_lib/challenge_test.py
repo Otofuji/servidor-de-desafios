@@ -380,6 +380,15 @@ class TestCaseWrapper(unittest.TestCase):
             raise err
         return self.__class__.CHALLENGE_FUN(*args, **kwargs)
         
+    def ld(self, s, t):
+        # http://rosettacode.org/wiki/Levenshtein_distance
+        if not s: return len(t)
+        if not t: return len(s)
+        if s[0] == t[0]: return ld(s[1:], t[1:])
+        l1 = ld(s, t[1:])
+        l2 = ld(s[1:], t)
+        l3 = ld(s[1:], t[1:])
+        return 1 + min(l1, l2, l3)
 
     def assert_similar(self, string1, string2, distMax=1, caseSensitive=False):
         if not string1: return len(string1)
