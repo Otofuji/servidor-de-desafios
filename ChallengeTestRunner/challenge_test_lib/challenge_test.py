@@ -381,7 +381,7 @@ class TestCaseWrapper(unittest.TestCase):
         return self.__class__.CHALLENGE_FUN(*args, **kwargs)
         
     def ld(self, s, t):
-        # http://rosettacode.org/wiki/Levenshtein_distance
+        # http://rosettacode.org/wiki/Levenshtein_distance#Memoized_recursion
         if not s: return len(t)
         if not t: return len(s)
         if s[0] == t[0]: return ld(s[1:], t[1:])
